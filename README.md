@@ -1,16 +1,21 @@
-# whatsapp-web-gateway
-A Node.js REST API gateway built on top of whatsapp-web.js that transforms WhatsApp into a programmable service. This project provides a containerized environment to manage WhatsApp sessions, automate messaging, and handle media via simple HTTP requests. It features a built-in dashboard for real-time QR code and Pairing code authentication
+# WhatsApp Web Gateway
 
-🚀 Key Features
-- RESTful API: Send text messages and media (images/PDFs) via standard POST requests.
-- Session Management: Persistent login state using localized or cloud storage (Docker-ready).
-- QR and Pairing Code Dashboard: A mini-frontend to visualize the authentication process and connection status.
-- Automated Headless Browser: Powered by Puppeteer to handle the WhatsApp Web interface.
+A Dockerized wrapper around `whatsapp-web.js` with a management dashboard.
 
-Cloud Ready: Optimized for AWS deployment with Docker and integrated CI/CD workflows.
+## Features
+- **API**: Send text and media messages via REST API.
+- **Dashboard**: Real-time QR Code scanning and status monitoring.
+- **Dockerized**: specific `Dockerfile` configs for running Puppeteer (Chrome) in containers.
+- **Monorepo**: Managed with NPM Workspaces.
 
-🛠 Tech Stack
-- Core: Node.js, whatsapp-web.js, Express
-- Automation: Puppeteer (Headless Chromium)
-- DevOps: Docker, GitHub Actions, AWS
-- 
+## Architecture
+- **Backend**: Node.js, Express, `whatsapp-web.js`, Socket.io.
+- **Frontend**: React, Vite.
+- **Infrastructure**: Docker, Docker Compose.
+
+## Quick Start
+1. `docker-compose up --build`
+2. Open `http://localhost:8080`
+3. Scan QR Code or use pairing code to authenticate.
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
