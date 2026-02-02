@@ -20,8 +20,9 @@ const sendMedia = require('./features/sendMedia');
 const authenticateToken = require('./middlewares/auth');
 
 const allowedOrigins = [
-    'http://localhost:3000',               // Your Dev Frontend (example port)
-    'http://whatsapp-web-gateway.com'      // Your Production Frontend
+    'http://localhost:3000',               // Dev frontend (Vite default)
+    'http://localhost:8080',               // Web container (nginx)
+    'http://whatsapp-web-gateway.com'      // Production frontend
 ];
 
 const app = express();
@@ -67,8 +68,8 @@ const router = express.Router();
 
 // GET
 router.get('/status', clientStatus);
-router.get('/auth/qr_code', authenticateToken, authQrCode); // QR Code
-router.get('/auth/pairing_code', authenticateToken, authPairingCode); // By pairing code
+router.get('/auth/qr_code', authQrCode); // QR Code - Public for initial setup
+router.get('/auth/pairing_code', authPairingCode); // Pairing Code - Public for initial setup
 router.get('/login', login);
 
 // POST
