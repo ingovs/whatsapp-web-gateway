@@ -9,13 +9,10 @@ class WhatsAppClient {
         this.status = 'INITIALIZING'; // INITIALIZING, QR_READY, READY, DISCONNECTED
         this.qrCode = null;
 
+
         // whatsapp-web.js configuration
         this.client = new Client({
             authStrategy: new LocalAuth({ dataPath: './.wwebjs_auth' }),
-            pairWithPhoneNumber: {
-                phoneNumber: process.env.WA_PHONE_NUMBER,
-                showNotification: true,
-            },
             puppeteer: {
                 headless: true,
                 args: [
