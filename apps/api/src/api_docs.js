@@ -11,14 +11,30 @@ const swaggerOptions = {
         },
         servers: [
             {
-                url: 'http://whatsapp-web-gateway.com',
-                description: 'Production server',
-            },
-            {
                 url: `http://localhost:8080`,
                 description: 'Local server',
             },
+            {
+                url: 'http://whatsapp-web-gateway.com',
+                description: 'Production server',
+            },
         ],
+        components: {
+            securitySchemes: {
+                ApiKeyAuth: {
+                    type: 'apiKey',
+                    in: 'header',
+                    name: 'x-api-key',
+                    description: 'API Key for authentication',
+                },
+                ApiSecretAuth: {
+                    type: 'apiKey',
+                    in: 'header',
+                    name: 'x-api-secret',
+                    description: 'API Secret for authentication',
+                },
+            },
+        },
     },
     apis: ['./src/features/*.js'],
 };

@@ -1,4 +1,11 @@
 require('dotenv').config();
+
+// Safety net: prevent Puppeteer/whatsapp-web.js internal async errors from crashing the process
+process.on('unhandledRejection', (reason) => {
+    const msg = reason instanceof Error ? reason.message : String(reason);
+    require('./utils/logger').warn(`Unhandled promise rejection (suppressed): ${msg}`);
+});
+
 const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
@@ -11,10 +18,11 @@ const logger = require('./utils/logger');
 // Features (endpoints)
 const clientStatus = require('./features/status');
 const authQrCode = require('./features/authQrCode');
-const authPairingCode = require('./features/authPairingCode');
+// const authPairingCode = require('./features/authPairingCode');
 const login = require('./features/login');
 const sendMessage = require('./features/sendMessage');
 const sendMedia = require('./features/sendMedia');
+const logout = require('./features/logout');
 
 // Middleware
 const authenticateToken = require('./middlewares/auth');
@@ -69,12 +77,13 @@ const router = express.Router();
 // GET
 router.get('/status', clientStatus);
 router.get('/auth/qr_code', authQrCode); // QR Code - Public for initial setup
-router.get('/auth/pairing_code', authPairingCode); // Pairing Code - Public for initial setup
+// router.get('/auth/pairing_code', authPairingCode); // Pairing Code - Public for initial setup
 router.get('/login', login);
 
 // POST
 router.post('/send_message', authenticateToken, sendMessage);
 router.post('/send_media', authenticateToken, sendMedia);
+router.post('/logout', logout);
 
 // Use the router in the app
 app.use('/', router);

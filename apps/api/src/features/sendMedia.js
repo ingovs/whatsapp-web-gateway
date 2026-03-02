@@ -6,6 +6,9 @@ const logger = require('../utils/logger');
  *   post:
  *     summary: Send a media message
  *     tags: [Messages]
+ *     security:
+ *       - ApiKeyAuth: []
+ *         ApiSecretAuth: []
  *     requestBody:
  *       required: true
  *       content:
