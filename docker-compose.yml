@@ -1,0 +1,25 @@
+services:
+  api:
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./whatsapp-auth:/app/.wwebjs_auth
+    environment:
+      - PORT=3001
+      - WA_PHONE_NUMBER=${WA_PHONE_NUMBER}
+      - API_KEY=${API_KEY}
+      - API_SECRET=${API_SECRET}
+    restart: always
+
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+    restart: always
