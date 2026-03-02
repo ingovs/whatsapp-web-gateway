@@ -1,0 +1,201 @@
+#root {
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0;
+    background: linear-gradient(to right, #fff, #999);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.status-badge {
+    padding: 12px 24px;
+    border-radius: 100px;
+    font-weight: 600;
+    color: white;
+    background-color: #646cff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.status-scan_qr {
+    background-color: #f59e0b;
+}
+
+.status-ready,
+.status-authenticated {
+    background-color: #10b981;
+}
+
+.status-disconnected {
+    background-color: #ef4444;
+}
+
+.status-initializing {
+    background-color: #3b82f6;
+}
+
+.card {
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    color: #1a1a1a;
+    /* Fix for visibility */
+}
+
+.card h2,
+.card h3 {
+    color: #111827;
+    margin-top: 0;
+}
+
+.card p {
+    color: #4b5563;
+}
+
+.qr-container {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    display: inline-block;
+    border: 1px solid #e5e7eb;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 320px;
+}
+
+input {
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 2px solid #e5e7eb;
+    font-size: 16px;
+    transition: border-color 0.2s;
+    outline: none;
+    background: #ffffff;
+    color: #000000;
+}
+
+input:focus {
+    border-color: #646cff;
+}
+
+button {
+    background: #111827;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+button:hover {
+    background: #1f2937;
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.code-box {
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    background: #f3f4f6;
+    color: #111827;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 16px;
+    letter-spacing: 4px;
+    border: 2px dashed #d1d5db;
+}
+
+.text-btn {
+    background: none;
+    border: none;
+    color: #6b7280;
+    text-decoration: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.text-btn:hover {
+    color: #111827;
+}
+
+.auth-methods-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+}
+
+.divider {
+    font-weight: 800;
+    color: #d1d5db;
+    position: relative;
+    padding: 0 10px;
+}
+
+.qr-section,
+.pairing-section {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.success-message h2 {
+    color: #10b981;
+    font-size: 2rem;
+}
+
+.logout-btn {
+    margin-top: 1.5rem;
+    padding: 0.7rem 1.5rem;
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.logout-btn:hover {
+    background-color: #b91c1c;
+}
+
+.logout-btn:disabled {
+    background-color: #6b7280;
+    cursor: not-allowed;
+}
